@@ -131,6 +131,10 @@ nav {
     position: relative;
 }
 
+.menubox:hover {
+    cursor: pointer;
+}
+
 .menubox img{
     width: 100%;
     object-fit: cover;
@@ -196,13 +200,16 @@ nav {
     aspect-ratio: 4 / 3;
     margin: 1%;
     width: 96%;
-    
 }
 
 .destinationsbox {
     aspect-ratio: 4 / 3;
     width: 94%;
     display: flex;
+}
+
+.destinationsbox img:hover {
+    cursor: pointer;
 }
 
 .destinationsbox h3{
@@ -219,6 +226,11 @@ nav {
 .routemap {
     display: flex;
     justify-content: center;
+}
+
+
+.textbox , .text{
+    display: none;
 }
 
 #underconstruction {
@@ -355,3 +367,67 @@ td {
 
 
 /* Amenities */
+/*
+.trainamenities {
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    grid-template-rows: 40% 40%;
+}
+*/
+
+.slide{
+    width: 100%;
+    height: 100%;
+    flex: 1 0 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.amenitiespicscon {
+    display: flex;
+    width: 100%;
+    height: 96vh;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.trainamenities {
+    overflow: hidden;
+    position: relative;
+}
+
+.picsliderbutton {
+    position: absolute;
+    display: flex;
+    width: 3%;
+    min-width: 40px;
+    cursor: pointer;
+    opacity: 0.3;
+    top: 0;
+    bottom: 0;
+    background-color: #000000;
+    height: 96vh;
+    color: white;
+    padding: 0;
+    margin: auto;
+    font-size: 3rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.picsliderbutton:hover {
+    opacity: 0.8;
+}
+
+#buttonright {
+    left: 0;
+}
+
+#buttonleft {
+    right: 0;
+}
