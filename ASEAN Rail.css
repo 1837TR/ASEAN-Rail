@@ -157,10 +157,6 @@ nav {
     transition: padding-left 1.5s ease;
 }
 
-.menuboxtitle:hover {
-    padding-left: 25px;
-    transition: 0.8s ease;
-}
 
 @media only screen and (max-width: 1030px) {
     .menubox h3 {
@@ -220,6 +216,142 @@ nav {
 
 /* Routes */
 
+.routemap {
+    display: flex;
+    justify-content: center;
+}
+
+#underconstruction {
+    margin: 0 0 3% 5%;
+}
+
 #routemappic {
     max-height: 96vh;
 }
+
+.routemaptext {
+    display: grid;
+    gap: 10px;
+}
+
+.linename {
+    font-weight: 600;
+}
+
+.eastline {
+    grid-row: 1;
+    grid-column: 1;
+    border: black solid 1px;
+}
+
+.westline {
+    grid-row: 1;
+    grid-column: 3;
+    border: black solid 1px;
+}
+
+.centralline {
+    grid-row: 1;
+    grid-column: 2;
+    border: black solid 1px;
+}
+
+.northline {
+    grid-row: 1;
+    grid-column: 4;
+    border: black solid 1px;
+}
+
+.northjavaline {
+    grid-row: 2;
+    grid-column: 1;
+    border: black solid 1px;
+}
+
+.southjavaline {
+    grid-row: 2;
+    grid-column: 2;
+    border: black solid 1px;
+}
+
+/* Logistics */
+
+.searchform {
+    margin: 0 0 20px 0px;
+    display: flex;
+    justify-self: center;
+}
+
+#originsearchbutton , #destinationsearchbutton {
+    margin-left: 10px;
+}
+
+#searchby {
+    font-size: 16px;
+}
+
+.searchbytitleandbuttons {
+    display: flex; 
+    justify-content: center; 
+    margin: 25px;
+}
+
+#searchbybuttontitle {
+    margin: 0px 10px 20px 0px;
+    align-self: end;
+}
+
+#searchbyoriginsbutton , #searchbydestinationsbutton {
+    margin: 10px;
+    padding: 10px;
+    border: black solid 2px;
+}
+
+#searchbyoriginsbutton:hover {
+   background-color: black;
+   color: white;
+}
+
+#searchbydestinationsbutton:hover {
+    background-color: black;
+    color: white;
+}
+
+.timetablesandprices{
+    text-align: center;
+}
+
+#searchbydestinationform label , #searchbyoriginform label {
+    font-size: 28px;
+}
+
+.searchformsandtable {
+    display: none;
+}
+
+table {
+    border: black solid 2px;
+    border-collapse: collapse;
+}
+
+.maintable {
+    display: flex;
+    justify-content: center;
+}
+
+th {
+    padding: 10px;
+    border: #000000 solid 2px;
+}
+
+td {
+    border: #000000 solid 2px;
+    padding: 4px;
+}
+
+.notResult {
+    display: none;
+}
+
+
+/* Amenities */

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASEAN Rail</title>
+  <link rel="stylesheet" href="ASEAN Rail.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav>
+      <div class="navtitle">
+        <img id="logo" src="Resources/ASEANlogo.png">
+        <h2 id="navtitletext">ASEAN Rail</h2>
+      </div>
+        <button id="navbutton">
+        </button>
+  </nav>
+  <div class="landing">
+    <div class="landingvidbox">
+      <video autoplay id="landingpagevid" muted src="Resources/Whoosh Whoosh Whoosh Langsung Melesat! (Official Commercial Video).mp4"></video>
+    </div>
+    <div class="landingbooknow">
+      <p id="landingbooknowbuttontext">TICKETS</p>
+    </div>
+  </div>
+  <div class="ticketsearch">
+  </div>
+  <h2>Explore</h2>
+  <div class="mainmenu">
+    <div class="menubox">
+      <img src="Resources/trainschedule.jpg">
+      <div class="menuboxtitle" id="timepricebox">
+        <h3 id="timeprice">Timetables and Prices</h3>
+      </div>
+    </div>
+    <div class="menubox">
+      <img id="routemappic" src="Resources/route map.jpg">
+      <div class="menuboxtitle" id="routemapbox">
+        <h3>Route Map</h3>
+      </div>
+    </div>
+    <div class="menubox">
+      <img src="Resources/th-1513963952.jpg">
+      <div class="menuboxtitle" id="amenitiesbox">
+        <h3>Train Amenities</h3>
+      </div>
+    </div>
+  </div>
+  <h2>Experience</h2>
+  <img id="fasttrainpic" src="Resources/fast train.jpg">
+  <h2>Discover</h2>
+  <div class="destinationsmenu">
+    <div class="destinationsbox , bkk">
+      <img src="Resources/bangkok.jpg" id="bkkpic">
+      <h3 id="bkktext">Bangkok</h3>
+    </div>
+    <div class="destinationsbox , hanoi">
+      <img src="Resources/Hanoi.jpg" id="hanoipic">
+      <h3 id="hanoitext">Hanoi</h3>
+    </div>
+    <div class="destinationsbox , sng">
+      <img src="Resources/singapore.jpg" id="sngpic">
+      <h3 id="sngtext">Singapore</h3>
+    </div>
+    <div class="destinationsbox , kl">
+      <img src="Resources/Kuala-Lumpur-Skyline.jpeg" id="klpic">
+      <h3 id="kltext">Kuala Lumpur</h3>
+    </div>
+  </div>
+  <h2 id="routessectitle">Routes</h2>
+  <h3 id="underconstruction">Under Construction</h3>
+  <div class="routemap">
+    <div class="routemappic">
+      <img id="routemappic" src="Resources/ASEAN route map.svg">
+    </div>
+    <div class="routemaptext">
+      
+      <!--
+      <div class="eastline">
+        <p class="linename">East Line</p>
+        <p class="linestop">Kunming</p>
+        <p class="linestop">Dali</p>
+        <p class="linestop">Mandalay</p>
+        <p class="linestop">Naypyidaw</p>
+        <p class="linestop">Yangon</p>
+        <p class="linestop">Chaing Mai</p>
+        <p class="linestop">Krungthep</p>
+      </div>
+      <div class="westline">
+        <p class="linename">West Line</p>
+        <p class="linestop">Kunming</p>
+        <p class="linestop">Hanoi</p>
+        <p class="linestop">Thanh Hoa</p>
+        <p class="linestop">Da Nang</p>
+        <p class="linestop">Quy Nhon</p>
+        <p class="linestop">Phan Thiet</p>
+        <p class="linestop">Ho Chi Minh City</p>
+        <p class="linestop">Phnom Penh</p>
+        <p class="linestop">Krong Battambang</p>
+        <p class="linestop">Pattaya</p>
+        <p class="linestop">Krungthep</p>
+      </div>
+      <div class="centralline">
+        <p class="linename">Central Line</p>
+        <p class="linestop">Kunming</p>
+        <p class="linestop">Vientiane</p>
+        <p class="linestop">Khon Kaen</p>
+        <p class="linestop">Krungthep</p>
+        <p class="linestop">Hua Hin</p>
+        <p class="linestop">Phuket</p>
+        <p class="linestop">Ipoh</p>
+        <p class="linestop">Kuala Lumpur</p>
+        <p class="linestop">Phuket</p>
+        <p class="linestop">Johor Bahrur</p>
+        <p class="linestop">Singapore</p>
+      </div>
+      <div class="northline">
+        <p class="linename">North Line</p>
+        <p class="linestop">Nanning</p>
+        <p class="linestop">Hanoi</p>
+        <p class="linestop">Vientiane</p>
+        <p class="linestop">Chaing Mai</p>
+      </div>
+      <div class="northjavaline">
+        <p class="linename">North Java Line</p>
+        <p class="linestop">Jakarta</p>
+        <p class="linestop">Bandung</p>
+        <p class="linestop">Semarang</p>
+        <p class="linestop">Surabaya</p>
+        <p class="linestop">Denpasar</p>
+      </div>
+      <div class="southjavaline">
+        <p class="linename">South Java Line</p>
+        <p class="linestop">Jakarta</p>
+        <p class="linestop">Bandung</p>
+        <p class="linestop">Yogyakarta</p>
+        <p class="linestop">Malang</p>
+        <p class="linestop">Surabaya</p>
+      </div>
+      -->
+    </div>
+  </div>
+  <h2 id="logisticssectitle">Logistics</h2>
+  <div class="timetablesandprices">
+    <div class="searchbytitleandbuttons">
+      <h3 id="searchbybuttontitle">Search by</h3>
+        <h3 id="searchbyoriginsbutton">Origins</h3>
+        <h3 id="searchbydestinationsbutton">Destinations</h3>
+    </div>
+    <div class="searchformsandtable">
+    <div class= "searchform">
+      <form id="searchbydestinationform">
+        <label for="destination"><span id="searchby">Select a</span> Destination</label>
+        <input list="destination-cities" id="destination" name="destination"/>
+        <datalist id="destination-cities">
+          <option value="Krungthep"></option>
+          <option value="Singapore"></option>
+          <option value="Hua Hin"></option>
+          <option value="Kunming"></option>
+          <option value="Dali"></option>
+          <option value="Mandalay"></option>
+          <option value="Naypyidaw"></option>
+          <option value="Yangon"></option>
+          <option value="Chaing Mai"></option>
+          <option value="Phuket"></option>
+          <option value="Vientiane"></option>
+          <option value="Khon Kaen"></option>
+          <option value="Ipoh"></option>
+          <option value="Kuala Lumpur"></option>
+          <option value="Johor Bahrur"></option>
+          <option value="Pattaya"></option>
+          <option value="Hanoi"></option>
+          <option value="Nanning"></option>
+          <option value="Jakarta"></option>
+          <option value="Bandung"></option>
+          <option value="Semarang"></option>
+          <option value="Surabaya"></option>
+          <option value="Malang"></option>
+          <option value="Yogyakarta"></option>
+          <option value="Denpasar"></option>
+        </datalist> 
+      </form>
+      <form id="searchbyoriginform">
+          <label for="origin"><span id="searchby">Select an</span> Origin</label>
+          <input list="origin-cities" id="origin" name="origin"/>
+          <datalist id="origin-cities">
+            <option value="Krungthep"></option>
+            <option value="Singapore"></option>
+            <option value="Hua Hin"></option>
+            <option value="Kunming"></option>
+            <option value="Dali"></option>
+            <option value="Mandalay"></option>
+            <option value="Naypyidaw"></option>
+            <option value="Yangon"></option>
+            <option value="Chaing Mai"></option>
+            <option value="Phuket"></option>
+            <option value="Vientiane"></option>
+            <option value="Khon Kaen"></option>
+            <option value="Ipoh"></option>
+            <option value="Kuala Lumpur"></option>
+            <option value="Johor Bahrur"></option>
+            <option value="Pattaya"></option>
+            <option value="Hanoi"></option>
+            <option value="Nanning"></option>
+            <option value="Jakarta"></option>
+            <option value="Bandung"></option>
+            <option value="Semarang"></option>
+            <option value="Surabaya"></option>
+            <option value="Malang"></option>
+            <option value="Yogyakarta"></option>
+            <option value="Denpasar"></option>
+          </datalist> 
+      </form>
+      <button id="originsearchbutton" onclick="filterByOrigin()">Search</button>
+      <button id="destinationsearchbutton" onclick="filterByDestination()">Search</button>
+    </div>
+    <div class="maintable">
+      <table id="database">
+        <tr>
+          <th>Origin</th>
+          <th>Destination</th>
+          <th>Price</th>
+          <th>Day</th>
+          <th>Depature Time</th>
+          <th>Arrival Time</th>
+        </tr>
+        <tr class="notResult">
+          <td class="origin">Krungthep</td>
+          <td class="destination">Kuala Lumpur</td>
+          <td class="price">3000</td>
+          <td class="day">Friday</td>
+          <td class="depature">10:00</td>
+          <td class="arrival">1:00</td>
+        </tr>
+        <tr class="notResult">
+          <td class="origin">Singapore</td>
+          <td class="destination">Phuket</td>
+          <td class="price">2800</td>
+          <td class="day">Tuesday</td>
+          <td class="depature">1:00</td>
+          <td class="arrival">3:00</td>
+        </tr>
+        <tr class="notResult">
+          <td class="origin">Kuala Lumpur</td>
+          <td class="destination">Khon Kaen</td>
+          <td class="price">2800</td>
+          <td class="day">Monday</td>
+          <td class="depature">1:00</td>
+          <td class="arrival">5:00</td>
+        </tr>
+        <tr class="notResult">
+          <td class="origin">Kunming</td>
+          <td class="destination">Mandalay</td>
+          <td class="price">1800</td>
+          <td class="day">Saturday</td>
+          <td class="depature">10:00</td>
+          <td class="arrival">11:00</td>
+        </tr>
+      </table>
+    </div>
+    </div>
+  </div>
+  <h2 id="amenitiessectitle">Enjoy</h2>
+  <div class="trainamenities">
+
+  </div>
+</body>
+<script src="ASEAN Rail.js"></script>
+</html>
