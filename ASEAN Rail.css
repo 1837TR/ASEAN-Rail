@@ -228,13 +228,8 @@ nav {
     justify-content: center;
 }
 
-
 .textbox , .text{
     display: none;
-}
-
-#underconstruction {
-    margin: 0 0 3% 5%;
 }
 
 #routemappic {
