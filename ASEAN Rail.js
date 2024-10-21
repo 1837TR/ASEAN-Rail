@@ -1,6 +1,6 @@
 //Main Menu Hover Animation
 document.getElementsByClassName('menubox')[0].onmouseover = function() {
-    document.getElementById("timepricebox").style.paddingLeft = "25px";
+    document.getElementById("timepricebox").style.paddingLeft = "6%";
 }
 
 document.getElementsByClassName('menubox')[0].onmouseout = function() {
@@ -8,7 +8,7 @@ document.getElementsByClassName('menubox')[0].onmouseout = function() {
 }
 
 document.getElementsByClassName('menubox')[1].onmouseover = function() {
-    document.getElementById("routemapbox").style.paddingLeft = "25px";
+    document.getElementById("routemapbox").style.paddingLeft = "6%";
 }
 
 document.getElementsByClassName('menubox')[1].onmouseout = function() {
@@ -16,7 +16,7 @@ document.getElementsByClassName('menubox')[1].onmouseout = function() {
 }
 
 document.getElementsByClassName('menubox')[2].onmouseover = function() {
-    document.getElementById("amenitiesbox").style.paddingLeft = "25px";
+    document.getElementById("amenitiesbox").style.paddingLeft = "6%";
 }
 
 document.getElementsByClassName('menubox')[2].onmouseout = function() {
@@ -124,6 +124,14 @@ function klLink() {
 hoverMenuPicKl.onclick = klLink;
 
 //Map
+let svgCon = document.getElementsByClassName("routemappic")[0];
+let screenWidth = window.innerWidth;
+
+function slidingSVGCon() {
+    svgCon.style.marginLeft = `calc(${parseInt(screenWidth) / 100 * -1}%)`;
+};
+
+slidingSVGCon();
 
 let kunmingText = document.getElementsByClassName('text')[0];
 let kunmingMapPoint = document.getElementsByClassName('mappoint')[0];
