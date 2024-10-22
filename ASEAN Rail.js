@@ -1,3 +1,7 @@
+//Nav Bar
+
+
+
 //Main Menu Hover Animation
 document.getElementsByClassName('menubox')[0].onmouseover = function() {
     document.getElementById("timepricebox").style.paddingLeft = "6%";
@@ -123,15 +127,18 @@ function klLink() {
 }
 hoverMenuPicKl.onclick = klLink;
 
-//Map
-let svgCon = document.getElementsByClassName("routemappic")[0];
+//Map 
+
+let svgCon = document.getElementsByTagName('svg')[0];
 let screenWidth = window.innerWidth;
+let firstNum = (parseInt(screenWidth) - 1500) / 2 * -1;
 
 function slidingSVGCon() {
-    svgCon.style.marginLeft = `calc(${parseInt(screenWidth) / 100 * -1}%)`;
+    svgCon.setAttribute('viewBox' , `${firstNum} 0 ${screenWidth} 600`);
 };
 
-slidingSVGCon();
+slidingSVGCon(); 
+console.log(svgCon.getAttribute('viewBox'));
 
 let kunmingText = document.getElementsByClassName('text')[0];
 let kunmingMapPoint = document.getElementsByClassName('mappoint')[0];

@@ -31,6 +31,60 @@ nav {
     background-color: rgb(0, 0, 0);
 }
 
+@media only screen and (max-width: 1200px) {
+    .landingvidbox {
+        margin-top: 1.75%;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .landingvidbox {
+        margin-top: 3%;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .landingvidbox {
+       margin-top: 4.5%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .landingvidbox {
+        margin-top: 6%;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .landingvidbox {
+        margin-top: 7.5%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .landingvidbox {
+        margin-top: 8.5%;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .landingvidbox {
+        margin-top: 11%;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .landingvidbox {
+        margin-top: 13%;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .landingvidbox {
+        margin-top: 16%;
+    }
+}
+
 
 .navtitle {
     display: flex;
@@ -83,6 +137,7 @@ nav {
 
 .landingbooknow {
     background-color: rgba(255, 255, 255, 0);
+    font-size: 20px;
     color: white;
     width: 110px;
     border: #fff solid 2px;
@@ -98,6 +153,30 @@ nav {
     color:rgb(0, 0, 0);
 }
 
+
+@media only screen and (max-width: 750px) {
+
+    .landing {
+       display: block;
+       text-align: center;
+    }
+
+    .landingbooknow {
+        background-color: rgba(255, 255, 255, 0);
+        color: black;
+        position: static;
+        display: inline-block;
+        transform: none;
+        border: #000 solid 2px;
+        width: fit-content;
+    }
+
+    .landingbooknow:hover {
+        background-color: #000 ;
+        color:rgb(255, 255, 255);
+    }
+
+}
 
 #landingbooknowbuttontext {
     margin: 8px;
@@ -202,6 +281,12 @@ nav {
    }
 }
 
+@media only screen and (max-width: 370px) {
+    #timeprice {
+        font-size: 19px;
+    }
+}
+
 /* destinations */
 
 .destinationsmenu {
@@ -257,43 +342,31 @@ nav {
 }
 
 .routemappic {
-    max-height: 92vh;
     height: 600px;
     min-height: 450px;
     width: 100%;
-}
-/*
-@media only screen and (max-width: 1300px) {
-    .routemappic {
-         margin-left: -10%;
-         width: 110%;
-    }
+    display: flex;
+    justify-content: center;
 }
 
-@media only screen and (max-width: 1150px) {
-    .routemappic {
-         margin-left: -20%;
-         width: 120%;
-    }
+svg {
+  display: block;
+  
 }
 
-@media only screen and (max-width: 850px) {
-    .routemappic {
-         margin-left: -35%;
-         width: 135%;
-    }
-}
-*/
 /* Logistics */
 
 .searchform {
-    margin: 0 0 20px 0px;
+    margin: 0 10px 20px 10px;
     display: flex;
-    justify-self: center;
+    justify-content: center;
 }
 
 #originsearchbutton , #destinationsearchbutton {
-    margin-left: 10px;
+    justify-self: center;
+    align-self: flex-end;
+    height: fit-content;
+    margin: 10px;
 }
 
 #searchby {
@@ -327,8 +400,9 @@ nav {
     color: white;
 }
 
-.timetablesandprices{
+.timetablesandprices {
     text-align: center;
+    width: 100%;
 }
 
 #searchbydestinationform label , #searchbyoriginform label {
@@ -347,6 +421,29 @@ table {
 .maintable {
     display: flex;
     justify-content: center;
+}
+
+@media only screen and (max-width: 550px) {
+    .maintable {
+        overflow: scroll;
+        justify-content: flex-start;
+    }
+
+    #or
+}
+
+@media only screen and (max-width: 470px) {
+
+    .searchbytitleandbuttons {
+        display:block;
+    }
+
+}
+
+@media only screen and (max-width: 400px) {
+    #database {
+
+    }
 }
 
 th {
@@ -373,13 +470,15 @@ td {
 }
 */
 
-.slide{
+.slide {
     width: 100%;
     height: 100%;
     flex: 1 0 100%;
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+
 
 .amenitiespicscon {
     display: flex;
@@ -428,4 +527,40 @@ td {
 
 #buttonleft {
     right: 0;
+}
+
+@media only screen and (max-width: 650px) {
+    .amenitiespicscon {
+        height: 70vh;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .amenitiespicscon {
+        height: 60vh;
+    }
+}
+
+@media only screen and (max-width: 435px) {
+    .amenitiespicscon {
+        height: 55vh;
+    }
+}
+
+@media only screen and (max-width: 380px) {
+    .amenitiespicscon {
+        height: 50vh;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .amenitiespicscon {
+        height: 45vh;
+    }
+}
+
+@media only screen and (max-width: 340px) {
+    .amenitiespicscon {
+        height: 40vh;
+    }
 }
