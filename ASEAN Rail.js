@@ -23,18 +23,16 @@ function buttonClick() {
         navButton.style.backgroundColor = '#fff';
         navButton.style.color = '#000';
         buttonMenu.style.display = 'flex';
-    } else {
+    }  else {
         buttonMenu.style.display = 'grid';
         buttonMenu.style.gridTemplateRows = 'repeat(2, auto)';
         buttonMenu.style.gridTemplateColumns = 'repeat(2, auto)';
-}};
+    }
+}
 
 navButton.onclick = buttonClick;
 buttonMenu.onmouseleave = buttonMenuClose;
-buttonMenu.ontouchstart = buttonMenuClose;
-buttonMenu.ontouchmove = buttonMenuClose;
-
-mobileMenu();
+navButton.ontouchmove= buttonMenuClose;
 
 //Main Menu Hover Animation
 document.getElementsByClassName('menubox')[0].onmouseover = function() {
