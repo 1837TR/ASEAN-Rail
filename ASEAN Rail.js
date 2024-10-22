@@ -1,6 +1,40 @@
 //Nav Bar
+let navButton = document.getElementById('navbutton');
+let buttonMenu = document.getElementsByClassName('buttonmenu')[0];
 
+function buttonHover() {
+    buttonMenu.style.display = 'flex';
+    navButton.style.transform = 'rotate(-90deg)';
+    navButton.style.backgroundColor = '#fff';
+    navButton.style.color = '#000';
+};
 
+navButton.onmouseenter = buttonHover;
+
+function buttonMenuClose() {
+    buttonMenu.style.display = 'none';
+    navButton.style.transform = 'rotate(0deg)';
+    navButton.style.backgroundColor = '#000';
+    navButton.style.color = '#fff';
+}
+
+function buttonClick() {
+    if (window.innerWidth > 500) {
+        navButton.style.backgroundColor = '#fff';
+        navButton.style.color = '#000';
+        buttonMenu.style.display = 'flex';
+    } else {
+        buttonMenu.style.display = 'grid';
+        buttonMenu.style.gridTemplateRows = 'repeat(2, auto)';
+        buttonMenu.style.gridTemplateColumns = 'repeat(2, auto)';
+}};
+
+navButton.onclick = buttonClick;
+buttonMenu.onmouseleave = buttonMenuClose;
+buttonMenu.ontouchstart = buttonMenuClose;
+buttonMenu.ontouchmove = buttonMenuClose;
+
+mobileMenu();
 
 //Main Menu Hover Animation
 document.getElementsByClassName('menubox')[0].onmouseover = function() {

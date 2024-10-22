@@ -19,6 +19,15 @@ h2 {
     font-size: 48px;
 }
 
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    color: #000;
+}
+
 /* navbar */
 
 nav {
@@ -85,7 +94,6 @@ nav {
     }
 }
 
-
 .navtitle {
     display: flex;
     width: 100%;
@@ -113,7 +121,35 @@ nav {
     top: 10px;
     height: 45px;
     width: 45px;
-    border-radius: 15px;
+    border: #fff solid 2px;
+    background-color:#000;
+    color: white;
+    font-size: 22px;
+    transition: transform 0.3s ease;
+}
+
+#navbutton:hover {
+    background-color:#fff;
+    color: #000;
+}
+
+.buttonmenu {
+    display: none;
+    justify-content: space-around;
+}
+
+.buttonoption {
+    padding: 5px 10px;
+    margin: 0 0 10px 0px;
+    border: white solid 2px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.buttonoption:hover {
+    border: #000 solid 2px;
+    background-color: #fff;
+    color: #000;
 }
 
 /* landing page */
@@ -523,36 +559,36 @@ td {
 
 @media only screen and (max-width: 650px) {
     .amenitiespicscon {
-        height: 70vh;
+        height: 60vh;
     }
 }
 
 @media only screen and (max-width: 500px) {
     .amenitiespicscon {
-        height: 60vh;
+        height: 55vh;
     }
 }
 
 @media only screen and (max-width: 435px) {
     .amenitiespicscon {
-        height: 55vh;
+        height: 50vh;
     }
 }
 
 @media only screen and (max-width: 380px) {
     .amenitiespicscon {
-        height: 50vh;
+        height: 45vh;
     }
 }
 
 @media only screen and (max-width: 360px) {
     .amenitiespicscon {
-        height: 45vh;
+        height: 40vh;
     }
 }
 
 @media only screen and (max-width: 340px) {
     .amenitiespicscon {
-        height: 40vh;
+        height: 35vh;
     }
 }
