@@ -1,6 +1,7 @@
 //Nav Bar
 let navButton = document.getElementById('navbutton');
 let buttonMenu = document.getElementsByClassName('buttonmenu')[0];
+let closeButton = document.getElementById('closebutton');
 
 function buttonHover() {
     buttonMenu.style.display = 'flex';
@@ -13,9 +14,11 @@ navButton.onmouseenter = buttonHover;
 
 function buttonMenuClose() {
     buttonMenu.style.display = 'none';
+    navButton.style.display = 'block';
     navButton.style.transform = 'rotate(0deg)';
     navButton.style.backgroundColor = '#000';
     navButton.style.color = '#fff';
+    closeButton.style.display = 'none';
 }
 
 function buttonClick() {
@@ -27,14 +30,14 @@ function buttonClick() {
         buttonMenu.style.display = 'grid';
         buttonMenu.style.gridTemplateRows = 'repeat(2, auto)';
         buttonMenu.style.gridTemplateColumns = 'repeat(2, auto)';
+        navButton.style.display = 'none';
+        closeButton.style.display = 'inline';
     }
 }
 
 navButton.onclick = buttonClick;
 buttonMenu.onmouseleave = buttonMenuClose;
-buttonMenu.ontouchmove = buttonMenuClose;
-
-
+closeButton.onclick = buttonMenuClose;
 
 //Main Menu Hover Animation
 document.getElementsByClassName('menubox')[0].onmouseover = function() {

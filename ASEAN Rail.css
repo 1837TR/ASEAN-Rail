@@ -133,6 +133,19 @@ nav {
     color: #000;
 }
 
+#closebutton {
+    display: none;
+    position: fixed;
+    right: 5px;
+    top: 10px;
+    height: 45px;
+    width: 45px;
+    border: #fff solid 2px;
+    background-color:#000;
+    color: white;
+    font-size: 18px;
+}
+
 .buttonmenu {
     display: none;
     justify-content: space-around;
