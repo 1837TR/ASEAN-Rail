@@ -32,7 +32,9 @@ function buttonClick() {
 
 navButton.onclick = buttonClick;
 buttonMenu.onmouseleave = buttonMenuClose;
-navButton.ontouchmove= buttonMenuClose;
+buttonMenu.ontouchmove = buttonMenuClose;
+
+
 
 //Main Menu Hover Animation
 document.getElementsByClassName('menubox')[0].onmouseover = function() {
