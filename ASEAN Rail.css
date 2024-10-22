@@ -428,8 +428,6 @@ table {
         overflow: scroll;
         justify-content: flex-start;
     }
-
-    #or
 }
 
 @media only screen and (max-width: 470px) {
@@ -438,12 +436,6 @@ table {
         display:block;
     }
 
-}
-
-@media only screen and (max-width: 400px) {
-    #database {
-
-    }
 }
 
 th {
