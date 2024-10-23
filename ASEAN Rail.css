@@ -404,7 +404,93 @@ svg {
 }
 
 /* Logistics */
+/* new log */
+.searchheader {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
 
+.logsearchbutton , #pricefiltersearchbutton , #resetbutton , #THBButton , #JPYButton{
+    margin: 15px;
+    padding: 10px;
+    border: #000 solid 2px;
+}
+
+#pricematrixandlabels {
+  margin: 10px 15px;
+  overflow-x: scroll;
+}
+
+.logsearchbutton:hover , #pricefiltersearchbutton:hover , #resetbutton:hover , #THBButton:hover , #JPYButton:hover {
+    background-color: black;
+    color: white;
+}
+
+#resetbutton , #JPYButton{
+    display: none;
+}
+
+#origincitiespricematrixform {
+    align-self: center;
+}
+
+#searchbyheader {
+    align-self: center;
+    margin: 5px;
+}
+
+.timetablesandpricesall {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 1150px) {
+    .timetablesandpricesall {
+        display: block;
+    }
+
+    #timetablenorth {
+        margin: 5px auto;
+        width: fit-content;
+    }
+
+    #timetablesouth {
+        margin: 5px auto;
+        width: fit-content;
+    }
+}
+
+#timetablenorth , #timetablesouth, #pricematrixandlabels , .timetablelabel {
+    display: none;
+}
+
+.timetables {
+    margin: 5px 15px;
+}
+
+#pricesearchmorebuttons {
+    display: flex;
+    justify-content: center;
+}
+
+#priceoriginlabel {
+    display: inline;
+}
+
+#pricedestinationlabel {
+    display: block;
+}
+
+#sidebox {
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    padding: 75px 10px 10px 10px;
+}
+
+
+/* old log */
 .searchform {
     margin: 0 10px 20px 10px;
     display: flex;

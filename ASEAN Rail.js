@@ -321,8 +321,370 @@ kualalumpurMapPoint.onmouseover = function() {
 kualalumpurMapPoint.onmouseout = function() {
     kualalumpurMapPoint.style.fill = "#487ab9";
     kualalumpurText.style.display = "none";
+};
+
+   //new
+//Timetable and PriceMatrix Search
+
+let pricesButton = document.getElementById('pricebutton');
+let timetablesButton = document.getElementById('timetablebutton');
+let priceMatrix = document.getElementById('pricematrixandlabels');
+let timetableSouth = document.getElementById('timetablesouth');
+let timetableNorth = document.getElementById('timetablenorth');
+let priceOriginFilterSearchButton = document.getElementById('pricefiltersearchbutton');
+let resetFilterSearchButton = document.getElementById('resetbutton');
+let searchHeader = document.getElementsByClassName('searchheader')[0];
+let searchHeaderText = document.getElementById('searchbyheader');
+let timetablesLabelN = document.getElementsByClassName('timetablelabel')[0];
+let timetablesLabelS = document.getElementsByClassName('timetablelabel')[1];
+
+function checkScreenforOverflow () {
+    if (window.innerWidth > 1130) {
+    priceMatrix.style.overflowX = 'hidden';
+}
+};
+
+checkScreenforOverflow();
+window.onresize = checkScreenforOverflow;
+
+pricesButton.onclick = function showPriceMatrix() {
+    priceMatrix.style.display = 'block';
+    timetableSouth.style.display = 'none';
+    timetableNorth.style.display = 'none';
+    timetablesLabelS.style.display = 'none';
+    timetablesLabelN.style.display = 'none';
+    searchHeader.style.justifyContent = 'left';
+    searchHeader.style.marginLeft = '5%';
+    searchHeaderText.innerHTML = "Switch to";
+    pricesButton.style.display = 'none';
+    if (timetablesButton.style.display === 'none') {
+        timetablesButton.style.display = 'block';
+    }
 }
 
+timetablesButton.onclick = function showTimetables() {
+    timetableSouth.style.display = 'block';
+    timetableNorth.style.display = 'block';
+    timetablesLabelS.style.display = 'block';
+    timetablesLabelN.style.display = 'block';
+    priceMatrix.style.display = 'none';
+    searchHeader.style.justifyContent = 'left';
+    searchHeader.style.marginLeft = '5%';
+    searchHeaderText.innerHTML = "Switch to";
+    timetablesButton.style.display = 'none';
+    if (pricesButton.style.display === 'none') {
+        pricesButton.style.display = 'block';
+    }
+}
+
+priceOriginFilterSearchButton.onclick = function filterPriceByOrigin() {
+    let priceOriginSearch = document.getElementById('origins').value;
+    let priceOriginCells = document.getElementsByClassName('ori');
+
+    for (let i = 0; i < priceOriginCells.length; i++) {
+        let priceOriginData = priceOriginCells[i];
+        if (!priceOriginData.innerText.includes(priceOriginSearch)) {
+            priceOriginData.classList.add('notResult');
+        };
+    };
+    priceOriginFilterSearchButton.style.display = 'none';
+    resetFilterSearchButton.style.display = 'block';
+}
+
+resetFilterSearchButton.onclick = function resetFilterSearch () {
+    let priceOriginCells = document.getElementsByClassName('ori');
+
+    for (let i = 0; i < priceOriginCells.length; i++) {
+        let priceOriginData = priceOriginCells[i];
+            priceOriginData.classList.remove('notResult');
+    };
+    priceMatrix.style.display = 'block';
+    resetFilterSearchButton.style.display = 'none';
+    priceOriginFilterSearchButton.style.display = 'block';
+}
+
+
+
+//timetables formula
+function addTimesPngToPhk () {
+  let penangTimes = document.getElementsByClassName('pngd');
+  let phuketTimes = document.getElementsByClassName('phkd');
+
+   for (let i = 0; i < penangTimes.length; i++) {
+    let penangTimeD = penangTimes[i];
+    let phuketTimeD = phuketTimes[i];
+
+  let penangTime = penangTimeD.textContent.split(':');
+  let hours = parseInt(penangTime[0]);
+  let minutes = parseInt(penangTime[1]);
+
+  let totalMinutes = hours * 60 + minutes + 123;
+  let newHours = Math.floor(totalMinutes / 60) % 24;
+  let newMinutes = totalMinutes % 60;
+  let newPhuketTime = `${newHours.toString().padStart(2, '0')}:${newMinutes.toString().padStart(2, '0')}`;
+  phuketTimeD.textContent = newPhuketTime;
+}
+};
+
+addTimesPngToPhk();
+
+function addTimesPhkToHhn () {
+    let huaHinTimes = document.getElementsByClassName('hhnd');
+    let phuketTimes = document.getElementsByClassName('phkd');
+    for (let i = 0; i < phuketTimes.length; i++) {
+        let phuketTimeD = phuketTimes[i];
+        let huaHinTimeD = huaHinTimes[i];
+
+        let phuketTime = phuketTimeD.textContent.split(':');
+        let hours = parseInt(phuketTime[0]);
+        let minutes = parseInt(phuketTime[1]);
+
+        let totalMinutes = hours * 60 + minutes + 130;
+        let newHours = Math.floor(totalMinutes / 60) % 24;
+        let newMinutes = totalMinutes % 60;
+        let newHuaHinTime = `${newHours.toString().padStart(2, '0')}:${newMinutes.toString().padStart(2, '0')}`;
+        huaHinTimeD.textContent = newHuaHinTime;
+    }
+};
+
+addTimesPhkToHhn ();
+
+function addTimesHhnToBKK () {
+    let huaHinTimes = document.getElementsByClassName('hhnd');
+    let BKKTimes = document.getElementsByClassName('bkkd');
+
+    for (let i = 0; i < huaHinTimes.length; i++) {
+        let huaHinTimeD = huaHinTimes[i];
+        let BKKTimeD = BKKTimes[i];
+
+        let huaHinTime = huaHinTimeD.textContent.split(':');
+        let hours = parseInt(huaHinTime[0]);
+        let minutes = parseInt(huaHinTime[1]);
+
+        let totalMinutes = hours * 60 + minutes + 40;
+        let newHours = Math.floor(totalMinutes / 60) % 24;
+        let newMinutes = totalMinutes % 60;
+        let newBKKTime = `${newHours.toString().padStart(2, '0')}:${newMinutes.toString().padStart(2, '0')}`;
+        BKKTimeD.textContent = newBKKTime;
+    }
+};
+
+addTimesHhnToBKK ();
+
+function addTimesBKKToKhn () {
+    let BKKTimes = document.getElementsByClassName('bkkd');
+    let khnTimes = document.getElementsByClassName('khnd');
+
+    for (let i = 0; i < BKKTimes.length; i++) {
+        let BKKTimeD = BKKTimes[i];
+        let khnTimeD = khnTimes[i];
+
+        let BKKTime = BKKTimeD.textContent.split(':');
+        let hours = parseInt(BKKTime[0]);
+        let minutes = parseInt(BKKTime[1]);
+
+        let totalMinutes = hours * 60 + minutes + 80;
+        let newHours = Math.floor(totalMinutes / 60) % 24;
+        let newMinutes = totalMinutes % 60;
+        let newkhnTime = `${newHours.toString().padStart(2, '0')}:${newMinutes.toString().padStart(2, '0')}`;
+        khnTimeD.textContent = newkhnTime;
+    }
+};
+
+addTimesBKKToKhn ();
+
+function addTimeskhnToVnt () {
+    let khnTimes = document.getElementsByClassName('bkkd');
+    let vntTimes = document.getElementsByClassName('vntd');
+
+    for (let i = 0; i < khnTimes.length; i++) {
+        let khnTimeD = khnTimes[i];
+        let vntTimeD = vntTimes[i];
+
+        let khnTime = khnTimeD.textContent.split(':');
+        let hours = parseInt(khnTime[0]);
+        let minutes = parseInt(khnTime[1]);
+
+        let totalMinutes = hours * 60 + minutes + 53;
+        let newHours = Math.floor(totalMinutes / 60) % 24;
+        let newMinutes = totalMinutes % 60;
+        let newvntTime = `${newHours.toString().padStart(2, '0')}:${newMinutes.toString().padStart(2, '0')}`;
+        vntTimeD.textContent = newvntTime;
+    }
+};
+
+addTimeskhnToVnt ();
+
+function addTimesvntToKnm () {
+    let vntTimes = document.getElementsByClassName('bkkd');
+    let knmTimes = document.getElementsByClassName('knmd');
+
+    for (let i = 0; i < vntTimes.length; i++) {
+        let vntTimeD = vntTimes[i];
+        let knmTimeD = knmTimes[i];
+
+        let vntTime = vntTimeD.textContent.split(':');
+        let hours = parseInt(vntTime[0]);
+        let minutes = parseInt(vntTime[1]);
+
+        let totalMinutes = hours * 60 + minutes + 260;
+        let newHours = Math.floor(totalMinutes / 60) % 24;
+        let newMinutes = totalMinutes % 60;
+        let newknmTime = `${newHours.toString().padStart(2, '0')}:${newMinutes.toString().padStart(2, '0')}`;
+        knmTimeD.textContent = newknmTime;
+    }
+};
+
+addTimesvntToKnm ();
+
+
+let timetableSouthbound = document.getElementById('timetablesouth');
+
+
+function reverseTableRows(tableId) {
+    let table = document.getElementById(tableId);
+    let rows = Array.from(table.rows);
+    for (let i = rows.length - 1; i >= 0; i--) {
+        table.appendChild(rows[i]);
+    }
+}
+
+function southboundReverse(tableId) {
+    let table = document.getElementById(tableId);
+    let rows = Array.from(table.rows);
+    rows.reverse();
+    return rows.map(row => row.outerHTML).join('');
+}
+
+document.getElementById('timetablesouth').innerHTML = southboundReverse('timetablenorth');
+
+let table = document.getElementById('pricematrix');
+
+
+let a = 1302;
+let b = 264;
+let c = 400;
+let d = 202;
+let e = 650;
+let f = 615;
+let g = 330;
+let h = 331;
+let j = 34;
+
+let priceMatrixT = document.getElementById('pricematrix');
+let rowsPM = priceMatrixT.getElementsByTagName('tr');
+
+function calcPrice() {
+
+
+    for (let i = 0; i < rowsPM.length; i++) {
+        let cellsPM = rowsPM[i].getElementsByTagName('td');
+        for (let j = 0; j < cellsPM.length; j++) {
+            if (cellsPM[j].classList.contains('j')) {
+                let currentValue = parseInt(cellsPM[j].textContent);
+                let newValue = currentValue + 34;
+                cellsPM[j].textContent = newValue;
+            }
+            if (cellsPM[j].classList.contains('h')) {
+                let currentValue = parseInt(cellsPM[j].textContent);
+                let newValue = currentValue + 331;
+                cellsPM[j].textContent = newValue;
+            }
+            if (cellsPM[j].classList.contains('g')) {
+                let currentValue = parseInt(cellsPM[j].textContent);
+                let newValue = currentValue + 330;
+                cellsPM[j].textContent = newValue;
+            }
+            if (cellsPM[j].classList.contains('f')) {
+                let currentValue = parseInt(cellsPM[j].textContent);
+                let newValue = currentValue + 615;
+                cellsPM[j].textContent = newValue;
+            }
+            if (cellsPM[j].classList.contains('e')) {
+                let currentValue = parseInt(cellsPM[j].textContent);
+                let newValue = currentValue + 650;
+                cellsPM[j].textContent = newValue;
+            }
+            if (cellsPM[j].classList.contains('d')) {
+                let currentValue = parseInt(cellsPM[j].textContent);
+                let newValue = currentValue + 202;
+                cellsPM[j].textContent = newValue;
+            }
+            if (cellsPM[j].classList.contains('c')) {
+                let currentValue = parseInt(cellsPM[j].textContent);
+                let newValue = currentValue + 400;
+                cellsPM[j].textContent = newValue;
+            }
+            if (cellsPM[j].classList.contains('b')) {
+                let currentValue = parseInt(cellsPM[j].textContent);
+                let newValue = currentValue + 264;
+                cellsPM[j].textContent = newValue;
+            }
+            if (cellsPM[j].classList.contains('a')) {
+                let currentValue = parseInt(cellsPM[j].textContent);
+                let newValue = currentValue + 1302;
+                cellsPM[j].textContent = newValue;
+            }
+            let km = parseInt(cellsPM[j].textContent);
+            const cost = km * 20;
+            cellsPM[j].textContent = `${parseInt(cost)} JPY`;
+            }
+    }
+}
+
+calcPrice ();
+
+let THBbutton = document.getElementById('THBButton');
+
+THBbutton.onclick = function changeToTHB () {
+    for (let i = 0; i < rowsPM.length; i++) {
+        let cellsPM = rowsPM[i].getElementsByTagName('td');
+        for (let j = 0; j < cellsPM.length; j++) {
+            let JPY = parseInt(cellsPM[j].textContent);
+            let THB = JPY / 4.5;
+            cellsPM[j].textContent = `${parseInt(THB)} THB`;
+        }
+    }
+    THBbutton.style.display = 'none';
+    JPYbutton.style.display = 'block';
+    colorVoid();
+}
+
+let JPYbutton = document.getElementById('JPYButton');
+
+JPYbutton.onclick = function changetoJPY () {
+    for (let i = 0; i < rowsPM.length; i++) {
+        let cellsPM = rowsPM[i].getElementsByTagName('td');
+        for (let j = 0; j < cellsPM.length; j++) {
+            let THB = parseInt(cellsPM[j].textContent);
+            let JPY = THB * 4.5;
+            cellsPM[j].textContent = `${parseInt(JPY)} JPY`;
+        } 
+    }
+    THBbutton.style.display = 'block';
+    JPYbutton.style.display = 'none';
+    colorVoid();
+}
+
+function colorVoid() {
+    for (let i = 0; i < rowsPM.length; i++) {
+        let cellsPM = rowsPM[i].getElementsByTagName('td');
+        for (let j = 0; j < cellsPM.length; j++) {
+            if (cellsPM[j].classList.contains('void')) {
+               let voidCells = cellsPM[j]
+               voidCells.style.backgroundColor = 'grey';
+               voidCells.textContent = '';
+            } else if (cellsPM[j].classList.contains('cornerbox')) {
+                let cornerBox = cellsPM[j]
+                cornerBox.textContent = '';
+            }
+}
+}
+}
+
+colorVoid();
+
+     //old
 //Selecting Origins or Destinations
 let originSearchButton = document.getElementById('searchbyoriginsbutton');
 let moveTheButton = document.getElementsByClassName('movedbuttons')[0];
@@ -395,6 +757,9 @@ function filterByDestination() {
      };
  }
  }
+
+      //above old
+
 
  // Amenities Pic Slider
  let slidesContainer = document.getElementsByClassName('amenitiespicscon')[0];
