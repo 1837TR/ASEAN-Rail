@@ -177,6 +177,7 @@ nav {
 
 .landingvidbox {
     width: 100%;
+    background-color: #000;
 }
 
 #landingpagevid {
@@ -236,6 +237,39 @@ nav {
 
 .ticketsearch {
     display: none;
+    background-color: #000;
+    height: 80px;
+}
+
+#ticketsearchform {
+    display: flex;
+}
+
+.ticketmenu {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.ticketod {
+    display: block;
+    margin: 0px;
+    padding-top: 5px;
+    padding-left: 5px;
+    color:#fff;
+}
+
+#datebox input{
+    border: none;
+}
+
+#ticketdestination , #ticketorigin{
+    border: none;
+}
+
+#ticketsearchform label{
+    font-size: 14px;
 }
 
 #fasttrainpic {
@@ -473,6 +507,20 @@ svg {
 #pricesearchmorebuttons {
     display: flex;
     justify-content: center;
+}
+
+@media only screen and (max-width: 400px) {
+     #pricesearchmorebuttons {
+    display: block;
+    justify-content: center;
+    }
+    #THBButton , #JPYButton , #resetbutton , #pricefiltersearchbutton {
+        width: fit-content;
+        margin: 10px auto;
+    }
+    .searchheader {
+        display: block;
+    }
 }
 
 #priceoriginlabel {

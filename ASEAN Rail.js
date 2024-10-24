@@ -39,6 +39,17 @@ navButton.onclick = buttonClick;
 buttonMenu.onmouseleave = buttonMenuClose;
 closeButton.onclick = buttonMenuClose;
 
+
+//Ticket Button
+let ticketButton = document.getElementsByClassName('landingbooknow')[0];
+let ticketMenu = document.getElementsByClassName('ticketsearch')[0];
+
+ticketButton.onclick = function openTicketSearch() {
+     ticketMenu.style.display = 'block';
+}
+
+
+
 //Main Menu Hover Animation
 document.getElementsByClassName('menubox')[0].onmouseover = function() {
     document.getElementById("timepricebox").style.paddingLeft = "6%";
@@ -175,6 +186,7 @@ function slidingSVGCon() {
 };
 
 slidingSVGCon(); 
+
 console.log(svgCon.getAttribute('viewBox'));
 
 let kunmingText = document.getElementsByClassName('text')[0];
@@ -706,7 +718,7 @@ function showOriginSearch() {
    
 }
 
-originSearchButton.onclick = showOriginSearch
+originSearchButton.onclick = showOriginSearch;
 
 let destinationSearchButton = document.getElementById('searchbydestinationsbutton');
 
