@@ -49,6 +49,29 @@ ticketButton.onclick = function openTicketSearch() {
 }
 
 
+//Search for Ticket
+
+let ticketDateInput = document.getElementById('ticketdate');
+let ticketDateOutput = document.getElementById('ticketdateoutput');
+let searchButton = document.getElementById('ticketsearchbutton');
+let ticketSearchResultsDiv = document.getElementsByClassName('ticketsearchresultsdiv')[0];
+let ticketOriginInput = document.getElementById('ticketorigin');
+let ticketOriginOutput = document.getElementById('ticketoriginoutput');
+let ticketDestinationInput = document.getElementById('ticketdestination');
+let ticketDestinationOutput = document.getElementById('ticketdestinationoutput');
+
+searchButton.onclick = function showResults() {
+    ticketSearchResultsDiv.style.display = 'block';
+};
+
+/*
+searchButton.onclick = function showResults() {
+    ticketSearchResultsDiv.style.display = 'block';
+    ticketDateOutput.value = ticketDateInput.value;
+    ticketOriginOutput.value = ticketOriginInput.value;
+    ticketDestinationOutput.value = ticketDestinationInput.value;
+};
+*/
 
 //Main Menu Hover Animation
 document.getElementsByClassName('menubox')[0].onmouseover = function() {
@@ -506,7 +529,7 @@ function addTimesBKKToKhn () {
 addTimesBKKToKhn ();
 
 function addTimeskhnToVnt () {
-    let khnTimes = document.getElementsByClassName('bkkd');
+    let khnTimes = document.getElementsByClassName('khnd');
     let vntTimes = document.getElementsByClassName('vntd');
 
     for (let i = 0; i < khnTimes.length; i++) {
@@ -528,7 +551,7 @@ function addTimeskhnToVnt () {
 addTimeskhnToVnt ();
 
 function addTimesvntToKnm () {
-    let vntTimes = document.getElementsByClassName('bkkd');
+    let vntTimes = document.getElementsByClassName('vntd');
     let knmTimes = document.getElementsByClassName('knmd');
 
     for (let i = 0; i < vntTimes.length; i++) {
@@ -550,9 +573,52 @@ function addTimesvntToKnm () {
 addTimesvntToKnm ();
 
 
-let timetableSouthbound = document.getElementById('timetablesouth');
+const timetableSouthFactory = (cityclass, destination, time1, time2, time3, time4, time5, time6) => {
+    return {
+        cityclass, destination, time1, time2, time3, time4, time5, time6,
+    };
+};
 
+const KunmingTTS = timetableSouthFactory ('kng', 'Kunming', '240', '480', '720', '960', '1200', '1440');
+const VientianeTTS = timetableSouthFactory ('vnt', 'Vientiane', (parseInt(KunmingTTS.time1) + 260).toString(), (parseInt(KunmingTTS.time2) + 260).toString(), (parseInt(KunmingTTS.time3) + 260).toString(), (parseInt(KunmingTTS.time4) + 260).toString(), (parseInt(KunmingTTS.time5) + 260).toString(), (parseInt(KunmingTTS.time6) + 260).toString());
+const KhonKaenTTS = timetableSouthFactory ('khn', 'KhonKaen', (parseInt(VientianeTTS.time1) + 53).toString(), (parseInt(VientianeTTS.time2) + 53).toString(), (parseInt(VientianeTTS.time3) + 53).toString(), (parseInt(VientianeTTS.time4) + 53).toString(), (parseInt(VientianeTTS.time5) + 53).toString(), (parseInt(VientianeTTS.time6) + 53).toString());
+const KrungthepTTS = timetableSouthFactory ('bkk', 'Krungthep', (parseInt(KhonKaenTTS.time1) + 80).toString(), (parseInt(KhonKaenTTS.time2) + 80).toString(), (parseInt(KhonKaenTTS.time3) + 80).toString(), (parseInt(KhonKaenTTS.time4) + 80).toString(), (parseInt(KhonKaenTTS.time5) + 80).toString(), (parseInt(KhonKaenTTS.time6) + 80).toString());
+const HuaHinTTS = timetableSouthFactory ('hhn', 'HuaHin', (parseInt(KrungthepTTS.time1) + 40).toString(), (parseInt(KrungthepTTS.time2) + 40).toString(), (parseInt(KrungthepTTS.time3) + 40).toString(), (parseInt(KrungthepTTS.time4) + 40).toString(), (parseInt(KrungthepTTS.time5) + 40).toString(), (parseInt(KrungthepTTS.time6) + 40).toString());
+const PhuketTTS = timetableSouthFactory ('phk', 'Phuket', (parseInt(HuaHinTTS.time1) + 130).toString(), (parseInt(HuaHinTTS.time2) + 130).toString(), (parseInt(HuaHinTTS.time3) + 130).toString(), (parseInt(HuaHinTTS.time4) + 130).toString(), (parseInt(HuaHinTTS.time5) + 130).toString(), (parseInt(HuaHinTTS.time6) + 130).toString());
+const PenangTTS = timetableSouthFactory ('png', 'Penang', (parseInt(PhuketTTS.time1) + 123).toString(), (parseInt(PhuketTTS.time2) + 123).toString(), (parseInt(PhuketTTS.time3) + 123).toString(), (parseInt(PhuketTTS.time4) + 123).toString(), (parseInt(PhuketTTS.time5) + 123).toString(), (parseInt(PhuketTTS.time6) + 123).toString());
+const KualaLumpurTTS = timetableSouthFactory ('kl', 'Kuala Lumpur', (parseInt(PenangTTS.time1) + 66).toString(), (parseInt(PenangTTS.time2) + 66).toString(), (parseInt(PenangTTS.time3) + 66).toString(), (parseInt(PenangTTS.time4) + 66).toString(), (parseInt(PenangTTS.time5) + 66).toString(), (parseInt(PenangTTS.time6) + 66).toString());
+const JohorBahruTTS = timetableSouthFactory ('kl', 'Johor Bahru', (parseInt(KualaLumpurTTS.time1) + 66).toString(), (parseInt(KualaLumpurTTS.time2) + 66).toString(), (parseInt(KualaLumpurTTS.time3) + 66).toString(), (parseInt(KualaLumpurTTS.time4) + 66).toString(), (parseInt(KualaLumpurTTS.time5) + 66).toString(), (parseInt(KualaLumpurTTS.time6) + 66).toString());
+const SingaporeTTS = timetableSouthFactory ('kl', 'Singapore', (parseInt(JohorBahruTTS.time1) + 6).toString(), (parseInt(JohorBahruTTS.time2) + 6).toString(), (parseInt(JohorBahruTTS.time3) + 6).toString(), (parseInt(JohorBahruTTS.time4) + 6).toString(), (parseInt(JohorBahruTTS.time5) + 6).toString(), (parseInt(JohorBahruTTS.time6) + 6).toString());
 
+const generatedtimesSouth = {
+        destinations: [KunmingTTS, VientianeTTS, KhonKaenTTS, KrungthepTTS, HuaHinTTS, PhuketTTS, PenangTTS, KualaLumpurTTS, JohorBahruTTS, SingaporeTTS],
+  };
+
+function changeMinstoTime() { 
+    generatedtimesSouth.destinations.forEach(destination => { 
+        ['time1', 'time2', 'time3', 'time4', 'time5', 'time6'].forEach(time => { 
+            let totalMinutes = parseInt(destination[time]); 
+            let newHours = Math.floor(totalMinutes / 60) % 24; 
+            let newMinutes = totalMinutes % 60; destination[time] = `${newHours.toString().padStart(2, '0')}:${newMinutes.toString().padStart(2, '0')}`; 
+        }); 
+        }); 
+    };
+
+document.addEventListener('DOMContentLoaded', function() {
+const source = document.getElementById('generatedtimetablesouth').innerHTML;
+    const template = Handlebars.compile(source);
+
+    changeMinstoTime();
+    
+    const compiledHtml = template(generatedtimesSouth);
+    const displayTTS = document.getElementById('timetablesouth');
+    displayTTS.innerHTML = compiledHtml;
+
+   
+   
+});
+
+/*
 function reverseTableRows(tableId) {
     let table = document.getElementById(tableId);
     let rows = Array.from(table.rows);
@@ -570,8 +636,9 @@ function southboundReverse(tableId) {
 
 document.getElementById('timetablesouth').innerHTML = southboundReverse('timetablenorth');
 
-let table = document.getElementById('pricematrix');
+*/
 
+let table = document.getElementById('pricematrix');
 
 let a = 1302;
 let b = 264;
@@ -698,12 +765,13 @@ colorVoid();
 
      //old
 //Selecting Origins or Destinations
+/*
 let originSearchButton = document.getElementById('searchbyoriginsbutton');
 let moveTheButton = document.getElementsByClassName('movedbuttons')[0];
 let buttonsToMove = document.getElementsByClassName('searchbytitleandbuttons')[0];
 
 function showOriginSearch() {
-   document.getElementsByClassName('searchformsandtable')[0].style.display = 'block';
+   document.getElementById('searchformsandtable').style.display = 'block';
    document.getElementById('searchbyoriginform').style.display = 'block';
    document.getElementById('searchbydestinationform').style.display = 'none';
    originSearchButton.style.display = 'none';
@@ -718,7 +786,7 @@ function showOriginSearch() {
    
 }
 
-originSearchButton.onclick = showOriginSearch;
+originSearchButton.onclick = showOriginSearch();
 
 let destinationSearchButton = document.getElementById('searchbydestinationsbutton');
 
@@ -769,7 +837,7 @@ function filterByDestination() {
      };
  }
  }
-
+*/
       //above old
 
 

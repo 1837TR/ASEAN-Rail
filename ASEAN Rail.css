@@ -173,6 +173,7 @@ nav {
     align-items: end;
     width: 100%;
     position: relative;
+    background-color: #000;
 }
 
 .landingvidbox {
@@ -198,11 +199,25 @@ nav {
     transform: translate(-50%, -50%);
 }
 
-.landingbooknow:hover {
+.landingbooknow:hover , #ticketsearchbutton:hover{
     background-color: #fff ;
     color:rgb(0, 0, 0);
 }
 
+#ticketsearchbutton {
+    width: 110px;
+    border: #fff solid 2px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: fit-content;
+    margin: 2px 0px -1px 15px;
+}
+
+#ticketsearchbuttontext {
+    margin: 8px;
+    font-size: 20px;
+}
 
 @media only screen and (max-width: 750px) {
 
@@ -212,18 +227,11 @@ nav {
     }
 
     .landingbooknow {
-        background-color: rgba(255, 255, 255, 0);
-        color: black;
         position: static;
         display: inline-block;
         transform: none;
-        border: #000 solid 2px;
         width: fit-content;
-    }
-
-    .landingbooknow:hover {
-        background-color: #000 ;
-        color:rgb(255, 255, 255);
+        margin-bottom: 7%;
     }
 
 }
@@ -233,23 +241,41 @@ nav {
     font-size: 20px;
 }
 
+
 /* ticket search */
 
 .ticketsearch {
     display: none;
     background-color: #000;
-    height: 80px;
+    height: 75px;
+}
+
+.ticketsearchresultsdiv {
+    display: none;
+    padding: 1% 9% 1% 9%;
+    color: #fff;
+    background-color: #000;
 }
 
 #ticketsearchform {
     display: flex;
+    height: fit-content;
 }
 
 .ticketmenu {
     padding-top: 20px;
     display: flex;
     justify-content: center;
-    
+    height: fit-content;
+}
+
+#oridestoutputs {
+    display: flex;
+    padding: 5px 0px 0px 0px;
+}
+
+#to {
+    margin: 0px 5px;
 }
 
 .ticketod {
@@ -258,6 +284,7 @@ nav {
     padding-top: 5px;
     padding-left: 5px;
     color:#fff;
+    height: 50px;
 }
 
 #datebox input{
@@ -445,7 +472,7 @@ svg {
     align-content: center;
 }
 
-.logsearchbutton , #pricefiltersearchbutton , #resetbutton , #THBButton , #JPYButton{
+.logsearchbutton , #pricefiltersearchbutton , #resetbutton , #THBButton , #JPYButton {
     margin: 15px;
     padding: 10px;
     border: #000 solid 2px;
@@ -514,7 +541,7 @@ svg {
     display: block;
     justify-content: center;
     }
-    #THBButton , #JPYButton , #resetbutton , #pricefiltersearchbutton {
+    #THBButton , #JPYButton , #resetbutton , #pricefiltersearchbutton , #ticketsearchbutton {
         width: fit-content;
         margin: 10px auto;
     }
@@ -535,6 +562,7 @@ svg {
     writing-mode: vertical-lr;
     text-orientation: upright;
     padding: 75px 10px 10px 10px;
+    width: fit-content;
 }
 
 
@@ -592,7 +620,7 @@ svg {
     font-size: 28px;
 }
 
-.searchformsandtable {
+#searchformsandtable {
     display: none;
 }
 
